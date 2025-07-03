@@ -44,8 +44,8 @@ const ProblemSection = () => {
             Why Your Resume Might Not Be Getting You Interviews
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            You've got the skills. So why no callbacks?
-            Here's what's really stopping your resume from getting noticed — and how to fix it.
+            You&apos;ve got the skills. So why no callbacks?
+            Here&apos;s what&apos;s really stopping your resume from getting noticed — and how to fix it.
           </p>
         </motion.div>
 

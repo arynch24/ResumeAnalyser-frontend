@@ -4,11 +4,14 @@ import { Button } from "@/components/ui/button";
 import { FileText, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useAuthContext } from "@/context/AuthenticationContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+
+  const { success } = useAuthContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +23,12 @@ const Navigation = () => {
   }, []);
 
   const handleGetStarted = () => {
-    router.push("/dashboard");
+    if (success) {
+      router.push("/dashboard");
+    } else {
+      router.push("/signup");
+    }
+    return;
   };
 
   return (
@@ -36,14 +44,17 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Button
-              variant="outline"
-              size="sm"
-              className="mr-2 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => router.push("/signin")}
-            >
-              Sign In
-            </Button>
+            {
+              !success && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mr-2 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  onClick={() => router.push("/signin")}
+                >
+                  Sign In
+                </Button>
+              )}
             <Button
               className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
               size="sm"
@@ -76,7 +87,6 @@ const Navigation = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
             <div className="px-3 py-2 space-y-2">
               <Button variant="outline" size="sm" className="w-full"
-              
               >
                 Sign In
               </Button>
