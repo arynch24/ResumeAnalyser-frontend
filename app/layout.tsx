@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { AuthProvider } from "@/context/AuthenticationContext";
+import { ContextProvider } from "@/context/DashboardContext";
 
 export const metadata: Metadata = {
   title: "IntelliResume",
@@ -17,7 +18,11 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        {children}
+        <AuthProvider>
+          <ContextProvider>
+            {children}
+          </ContextProvider>
+        </AuthProvider>
       </body>
     </html>
   );
