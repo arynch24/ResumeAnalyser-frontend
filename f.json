@@ -1,0 +1,235 @@
+{
+    "success": true,
+    "message": "Successfully extracted details from resume and updated the resume in database",
+    "resume_metadata": {
+        "resume_name": "aryan",
+        "is_primary": true
+    },
+    "resume_details": {
+        "personal_info": {
+            "name": "ARYAN CHAUHAN",
+            "contact_info": {
+                "email": "arynch2q4@aryanchauhan.com",
+                "mobile": "+91 7800700083",
+                "location": "Bengaluru, Karnataka"
+            },
+            "social_links": {
+                "linkedin": "",
+                "github": "",
+                "portfolio": ""
+            },
+            "professional_summary": ""
+        },
+        "educations": [
+            {
+                "institute_name": "Indian Institute of Technology Guwahati",
+                "degree": "B.Sc.(Honors) in Data Science and Artificial Technology",
+                "specialisation": "",
+                "dates": {
+                    "start": "",
+                    "end": ""
+                },
+                "location": "",
+                "gpa": "",
+                "relevant_coursework": []
+            },
+            {
+                "institute_name": "Physics Wallah Institute of Innovation",
+                "degree": "Certification in Computer Science and Artificial Intelligence",
+                "specialisation": "",
+                "dates": {
+                    "start": "",
+                    "end": ""
+                },
+                "location": "",
+                "gpa": "",
+                "relevant_coursework": []
+            },
+            {
+                "institute_name": "CBSE Board",
+                "degree": "Senior Secondary Examination",
+                "specialisation": "",
+                "dates": {
+                    "start": "",
+                    "end": ""
+                },
+                "location": "",
+                "gpa": "",
+                "relevant_coursework": []
+            },
+            {
+                "institute_name": "CBSE Board",
+                "degree": "Higher Secondary Examination",
+                "specialisation": "",
+                "dates": {
+                    "start": "",
+                    "end": ""
+                },
+                "location": "",
+                "gpa": "",
+                "relevant_coursework": []
+            }
+        ],
+        "work_experiences": [
+            {
+                "company_name": "Physics Wallah",
+                "job_title": "Frontend Developer Intern",
+                "date": {
+                    "start": "Jun 2025",
+                    "end": "Nov 2025"
+                },
+                "location": "Bengaluru, Karnataka",
+                "bullet_points": [
+                    "Developed and maintained web applications using React and Node.js",
+                    "Collaborated with cross-functional teams to deliver high-quality software solutions",
+                    "Participated in code reviews and followed agile development practices"
+                ]
+            }
+        ],
+        "projects": [
+            {
+                "title": "Cuttly",
+                "description": "Developed a custom link shortener using Cuttly API to generate and manage short URLs.",
+                "project_link": "https://cuttely.vercel.app/",
+                "date": {
+                    "start": "10 2023",
+                    "end": "Current"
+                },
+                "location": "Guwahati, Assam",
+                "organization": "",
+                "bullet_points": [
+                    "Integrated analytics to track click performance and improve link sharing efficiency"
+                ],
+                "technologies_used": [
+                    "Next.js",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "Postgres",
+                    "Prisma ORM",
+                    "NextAuth"
+                ]
+            },
+            {
+                "title": "UploadThing",
+                "description": "Built a file-uploading platform, enabling users to upload media to cloud storage Cloudinary and generate sharable links.",
+                "project_link": "https://upload-thing-alpha.vereel.app/",
+                "date": {
+                    "start": "04 2021",
+                    "end": "04 2022"
+                },
+                "location": "Ghazipur, Uttar Pradesh",
+                "organization": "",
+                "bullet_points": [
+                    "Implemented GitHub authentication, a user dashboard, and a backend API, deploying the project on Raihvay for scalability"
+                ],
+                "technologies_used": [
+                    "Next.js",
+                    "Tailwind CSS",
+                    "Github oAuth",
+                    "MongoDB",
+                    "ShadCN",
+                    "Cloudinary API"
+                ]
+            }
+        ],
+        "skills": [
+            {
+                "skill_group": "Languages",
+                "skills": [
+                    "Python",
+                    "JavaScript",
+                    "Java",
+                    "C++",
+                    "SQL"
+                ]
+            },
+            {
+                "skill_group": "Developer Tools",
+                "skills": [
+                    "VS Code",
+                    "Git",
+                    "Docker",
+                    "AWS",
+                    "Postman"
+                ]
+            },
+            {
+                "skill_group": "Technologies/Frameworks",
+                "skills": [
+                    "React",
+                    "Node.js",
+                    "Express",
+                    "MongoDB",
+                    "PostgreSQL"
+                ]
+            }
+        ],
+        "achievements": [],
+        "certifications": [
+            {
+                "certificate_name": "AWS Cloud Practitioner",
+                "issuing_organization": "",
+                "date_issued": "",
+                "expiry_date": "",
+                "description": ""
+            },
+            {
+                "certificate_name": "React Developer Certification",
+                "issuing_organization": "",
+                "date_issued": "",
+                "expiry_date": "",
+                "description": ""
+            },
+            {
+                "certificate_name": "Google Analytics Certified",
+                "issuing_organization": "",
+                "date_issued": "",
+                "expiry_date": "",
+                "description": ""
+            },
+            {
+                "certificate_name": "MongoDB Developer",
+                "issuing_organization": "",
+                "date_issued": "",
+                "expiry_date": "",
+                "description": ""
+            },
+            {
+                "certificate_name": "Scrum Master Certified",
+                "issuing_organization": "",
+                "date_issued": "",
+                "expiry_date": "",
+                "description": ""
+            },
+            {
+                "certificate_name": "Docker Fundamentals",
+                "issuing_organization": "",
+                "date_issued": "",
+                "expiry_date": "",
+                "description": ""
+            }
+        ],
+        "languages": [
+            {
+                "language": "Python",
+                "proficiency": "Native"
+            }
+        ],
+        "publications": [],
+        "extracurriculars": [
+            {
+                "title": "Computer Science Club",
+                "organization_name": "",
+                "role": "President",
+                "date": {
+                    "start": "Sep 2022",
+                    "end": "May 2024"
+                },
+                "bullet_points": [
+                    "Led a team of 50+ members in organizing technical workshops and coding competitions",
+                    "Coordinated with industry professionals for guest lectures and mentorship programs"
+                ]
+            }
+        ]
+    }
+}
