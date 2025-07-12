@@ -20,7 +20,7 @@ const Footer = () => {
             Ready to Transform Your Career?
           </h2>
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals and students who've already optimized their resumes and accelerated their careers with IntelliResume.
+            Join thousands of professionals and students who&apos;ve already optimized their resumes and accelerated their careers with IntelliResume.
           </p>
           <motion.div
             whileHover={{ scale: 1.05 }}

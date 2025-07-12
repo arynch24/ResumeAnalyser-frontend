@@ -41,7 +41,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tighter mb-8 text-foreground"
             >
-              Turn Your Resume Into Your Career's{" "}
+              Turn Your Resume Into Your Career&apos;s{" "}
               <span className="text-primary">Best Asset</span>
             </motion.h1>
 
@@ -76,7 +76,7 @@ const Hero = () => {
               className="flex items-center text-sm text-muted-foreground"
             >
               <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-              Join 10,000+ professionals who've improved their resume match score by 85% and landed interviews 3x faster
+              Join 10,000+ professionals who&apos;ve improved their resume match score by 85% and landed interviews 3x faster
             </motion.div>
           </motion.div>
 
