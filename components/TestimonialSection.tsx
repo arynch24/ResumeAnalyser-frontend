@@ -73,7 +73,7 @@ const TestimonialSection = () => {
           Trusted  by thousands of top professionals and students 
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Join thousands of professionals who've transformed their careers with AI-powered resume optimization
+            Join thousands of professionals who&apos;ve transformed their careers with AI-powered resume optimization
           </p>
         </motion.div>
         
@@ -131,7 +131,7 @@ const TestimonialSection = () => {
                     </div>
                     
                     <p className="text-gray-600 italic leading-relaxed">
-                      "{testimonial.text}"
+                    &apos;{testimonial.text}&apos;
                     </p>
                   </div>
                 </Card>
