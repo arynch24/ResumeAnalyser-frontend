@@ -8,8 +8,8 @@ const ATSOptimization: React.FC<{
     resumeSummary: string;
   }> = ({ suggestions, jobFitAssessment, resumeSummary }) => {
     return (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-6">ATS Optimization & Job Fit</h3>
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6">ATS Optimization & Job Fit</h3>
         
         <div className="space-y-6">
           {/* Job Fit Assessment */}

@@ -307,12 +307,12 @@ const ResumeBuilder: React.FC = () => {
           <div className="lg:sticky lg:top-6">
             <div className="bg-white rounded-lg shadow-sm p-4">
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-4">
-                  <h2 className="text-lg font-semibold">Live Preview</h2>
+                <div className="flex flex-col sm:flex-row items-center sm:gap-4">
+                  <h2 className="text-base sm:text-lg font-semibold">Live Preview</h2>
                   {/* Resume name display with inline editing capability */}
                   {resumeData?.resume_name && (
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-500">•</span>
+                      <span className="hidden sm:block text-sm text-gray-500">•</span>
                       {isEditingName ? (
                         // Inline editing mode
                         <div className="flex items-center gap-2">

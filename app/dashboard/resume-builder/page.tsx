@@ -136,29 +136,29 @@ export default function ResumeStarter() {
     );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6">
       <div className="max-w-4xl w-full flex flex-col justify-center items-center">
         {/* Header Section - Main title and description */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             How do you want to start?
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600 px-4 sm:px-0">
             Choose an option to begin building your resume tailored for the job you want.
           </p>
         </div>
 
         {/* Options Grid - Two main action cards */}
-        <div className="max-w-2xl grid md:grid-cols-2 gap-6">
+        <div className="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-0">
           {/* Import Existing Resume Option */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group"
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group"
             onClick={handleImportClick}>
             <div className="flex flex-col items-center text-center">
               {/* Icon container with hover effect */}
-              <div className="w-13 h-13 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
-                <Upload className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 sm:w-13 sm:h-13 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-blue-200 transition-colors">
+                <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
                 Import existing resume
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -168,14 +168,14 @@ export default function ResumeStarter() {
           </div>
 
           {/* Create New Resume Option */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group"
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group"
             onClick={handleCreateClick}>
             <div className="flex flex-col items-center text-center">
               {/* Icon container with hover effect */}
-              <div className="w-13 h-13 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-200 transition-colors">
-                <Plus className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 sm:w-13 sm:h-13 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors">
+                <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
                 Create from scratch
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -186,8 +186,8 @@ export default function ResumeStarter() {
         </div>
 
         {/* Footer Section - Additional guidance text */}
-        <div className="text-center mt-12">
-          <p className="text-sm text-gray-500">
+        <div className="text-center mt-8 sm:mt-12 px-4 sm:px-0">
+          <p className="text-xs sm:text-sm text-gray-500">
             Not sure which option to choose? You can always change your approach later.
           </p>
         </div>

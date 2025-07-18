@@ -79,6 +79,7 @@ const api = {
  * - Delete confirmation dialogs
  * - Loading states and error handling
  * - Integration with resume builder and job matcher
+ * - Full mobile responsiveness
  * 
  * @component
  * @returns {JSX.Element} The rendered ResumeManager component
@@ -324,9 +325,9 @@ const ResumeManager: React.FC = () => {
     // Show loading shimmer while data is being fetched
     if (loading) {
       return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-white rounded-lg border border-gray-200 p-6">
+            <div key={i} className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
               <Shimmer />
             </div>
           ))}
@@ -337,15 +338,15 @@ const ResumeManager: React.FC = () => {
     // Show error state with retry option
     if (error) {
       return (
-        <div className="text-center py-12">
-          <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
-            <Layers2 className="w-8 h-8 text-red-600" />
+        <div className="text-center py-12 px-4">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+            <Layers2 className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Error Loading Data</h3>
-          <p className="text-gray-600 mb-6">{error}</p>
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Error Loading Data</h3>
+          <p className="text-sm sm:text-base text-gray-600 mb-6">{error}</p>
           <button
             onClick={loadData}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            className="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base"
           >
             Try Again
           </button>
@@ -364,12 +365,12 @@ const ResumeManager: React.FC = () => {
         <div className="space-y-6">
           {/* Resume Builder Section - Only show if resumes exist */}
           {resumes.length > 0 && (
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
-                <FileText className="w-5 h-5 text-blue-600" />
+            <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+              <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 <span>Resume Builder Uploads</span>
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredResumes.map(resume => (
                   <ResumeCard
                     key={resume._id}
@@ -385,12 +386,12 @@ const ResumeManager: React.FC = () => {
 
           {/* Job Matches Section - Only show if job matches exist */}
           {jobMatches.length > 0 && (
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
-                <Search className="w-5 h-5 text-green-600" />
+            <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+              <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                 <span>Resume + JD Matching Analysis</span>
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredJobMatches.map(match => (
                   <JobMatchCard
                     key={match._id}
@@ -414,12 +415,12 @@ const ResumeManager: React.FC = () => {
 
       return (
         <div className="space-y-6">
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
-              <FileText className="w-5 h-5 text-blue-600" />
+          <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+              <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
               <span>Resume Builder Uploads</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {filteredResumes.map(resume => (
                 <ResumeCard
                   key={resume._id}
@@ -439,24 +440,24 @@ const ResumeManager: React.FC = () => {
     if (activeTab === 'matches') {
       if (jobMatches.length === 0) {
         return (
-          <div className="text-center py-12">
-            <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-              <Search className="w-8 h-8 text-blue-600" />
+          <div className="text-center py-12 px-4">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+              <Search className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No job matches yet</h3>
-            <p className="text-gray-600">Upload resumes and job descriptions to start matching.</p>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">No job matches yet</h3>
+            <p className="text-sm sm:text-base text-gray-600">Upload resumes and job descriptions to start matching.</p>
           </div>
         );
       }
 
       return (
         <div className="space-y-6">
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
-              <Search className="w-5 h-5 text-green-600" />
+          <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
               <span>Resume + JD Matching Analysis</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {filteredJobMatches.map(match => (
                 <JobMatchCard
                   key={match._id}
@@ -474,21 +475,21 @@ const ResumeManager: React.FC = () => {
 
   return (
     <div className="h-screen bg-gray-50 overflow-y-auto">
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 space-y-4 sm:space-y-0">
           <div className="flex items-center space-x-3">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Resume Manager</h1>
-              <p className="text-gray-600">Manage all your uploaded resumes and job descriptions in one place</p>
+              <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900">Resume Manager</h1>
+              <p className="text-sm sm:text-base text-gray-600">Manage all your uploaded resumes and job descriptions in one place</p>
             </div>
           </div>
         </div>
 
         {/* Navigation Tabs and Search */}
-        <div className="flex justify-between mb-6">
+        <div className="flex flex-col lg:flex-row lg:justify-between mb-6 space-y-4 lg:space-y-0">
           {/* Tab Navigation */}
-          <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg w-fit">
+          <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg w-full lg:w-fit overflow-x-auto">
             {[
               { id: 'all', label: 'All Files', count: resumes.length + jobMatches.length },
               { id: 'builder', label: 'Resume Builder', count: resumes.length },
@@ -497,33 +498,37 @@ const ResumeManager: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'all' | 'builder' | 'matches')}
-                className={`px-4 py-2 rounded-md font-medium transition-colors ${activeTab === tab.id
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                className={`px-3 sm:px-4 py-2 rounded-md font-medium transition-colors whitespace-nowrap text-sm sm:text-base ${
+                  activeTab === tab.id
+                    ? 'bg-white text-blue-600 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
-                {tab.label} ({tab.count})
+                <span className="hidden sm:inline">{tab.label} ({tab.count})</span>
+                <span className="sm:hidden">{tab.label.split(' ')[0]} ({tab.count})</span>
               </button>
             ))}
           </div>
           
           {/* Search Input */}
-          <div className="flex items-center space-x-4 mr-2">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <div className="flex items-center space-x-4">
+            <div className="relative w-full lg:w-64">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
               <input
                 type="text"
                 placeholder="Search resumes..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-64"
+                className="pl-9 sm:pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-1 outline-none w-full text-sm sm:text-base"
               />
             </div>
           </div>
         </div>
 
         {/* Main Content Area */}
-        {renderContent()}
+        <div className="pb-4">
+          {renderContent()}
+        </div>
       </div>
 
       {/* Delete Confirmation Modal */}

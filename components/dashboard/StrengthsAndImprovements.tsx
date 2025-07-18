@@ -6,15 +6,15 @@ const StrengthsAndImprovements: React.FC<{
     improvements: Array<{description: string; weightage: number}>;
   }> = ({ strengths, improvements }) => {
     return (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-6">Resume Analysis</h3>
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6">Resume Analysis</h3>
         
         <div className="space-y-6">
           {/* Strengths */}
           <div>
             <div className="flex items-center gap-2 mb-3">
               <CheckCircle className="h-5 w-5 text-green-600" />
-              <h4 className="text-lg font-medium text-gray-900">Key Strengths</h4>
+              <h4 className="text-base sm:text-lg font-medium text-gray-900">Key Strengths</h4>
             </div>
             <div className="space-y-3">
               {strengths.length > 0 ? (
@@ -47,7 +47,7 @@ const StrengthsAndImprovements: React.FC<{
           <div>
             <div className="flex items-center gap-2 mb-3">
               <AlertCircle className="h-5 w-5 text-orange-600" />
-              <h4 className="text-lg font-medium text-gray-900">Areas for Improvement</h4>
+              <h4 className="text-base sm:text-lg font-medium text-gray-900">Areas for Improvement</h4>
             </div>
             <div className="space-y-3">
               {improvements.length > 0 ? (

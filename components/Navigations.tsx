@@ -70,7 +70,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="transition-all duration-300 hover:scale-110"
+              className="bg-gray-200 transition-all duration-300 hover:scale-110"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6 transition-transform duration-300 rotate-180" />
@@ -84,9 +84,9 @@ const Navigation = () => {
         {/* Mobile menu */}
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
           }`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+          <div className="px-2 pt-2 pb-3 space-y-1">
             <div className="px-3 py-2 space-y-2">
-              <Button variant="outline" size="sm" className="w-full"
+              <Button variant="outline" size="sm" className="w-full text-gray-200 border-gray-200"
               >
                 Sign In
               </Button>

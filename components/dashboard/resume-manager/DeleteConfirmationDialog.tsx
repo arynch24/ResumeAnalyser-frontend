@@ -1,7 +1,6 @@
 "use client";
 
 import { X, AlertTriangle } from 'lucide-react';
-import { useEffect } from 'react';
 
 interface DeleteConfirmationDialogProps {
   isOpen: boolean;
@@ -27,26 +26,6 @@ const DeleteConfirmationDialog: React.FC<DeleteConfirmationDialogProps> = ({
   cancelButtonText = 'Cancel'
 }) => {
   if (!isOpen) return null;
-
-  // Handle ESC key press
-  useEffect(() => {
-    const handleEscKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !isDeleting) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscKey);
-      // Prevent body scroll when dialog is open
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscKey);
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen, isDeleting, onClose]);
 
   // Handle backdrop click
   const handleBackdropClick = (e: React.MouseEvent) => {

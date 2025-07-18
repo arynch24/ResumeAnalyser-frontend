@@ -9,7 +9,7 @@ const SkillTag: React.FC<{
     const bgColor = skill.type === 'technical' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800';
     
     return (
-        <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium ${bgColor}`}>
+        <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${bgColor}`}>
             {skill.name}
             <button
                 onClick={() => onRemove(skill.id)}
