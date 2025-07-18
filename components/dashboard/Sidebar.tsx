@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -37,9 +37,30 @@ const Sidebar: React.FC = () => {
 
     // State to control sidebar collapsed/expanded state
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     // Get current pathname to highlight active item
     const pathname = usePathname();
+
+    // Check if screen is mobile and set collapsed state accordingly
+    useEffect(() => {
+        const checkScreenSize = () => {
+            const mobile = window.innerWidth < 768; // md breakpoint
+            setIsMobile(mobile);
+            if (mobile) {
+                setIsCollapsed(true);
+            }
+        };
+
+        // Check on initial load
+        checkScreenSize();
+
+        // Add event listener for window resize
+        window.addEventListener('resize', checkScreenSize);
+
+        // Cleanup event listener on component unmount
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     // Main navigation sections configuration
     const navigationSections: NavSection[] = [
@@ -91,12 +112,6 @@ const Sidebar: React.FC = () => {
                     icon: <User size={20} />,
                     navigation: '/dashboard/profile'
                 },
-                // {
-                //     id: 'settings',
-                //     label: 'Settings',
-                //     icon: <Settings size={20} />,
-                //     navigation: '/dashboard/settings'
-                // },
                 {
                     id: 'help-support',
                     label: 'Help & Support',
@@ -121,9 +136,12 @@ const Sidebar: React.FC = () => {
 
     /**
      * Toggle sidebar collapsed state
+     * Only allow toggle if not on mobile (mobile should stay collapsed)
      */
     const toggleSidebar = () => {
-        setIsCollapsed(!isCollapsed);
+        if (!isMobile) {
+            setIsCollapsed(!isCollapsed);
+        }
     };
 
     return (
@@ -145,18 +163,20 @@ const Sidebar: React.FC = () => {
                         )}
                     </div>
 
-                    {/* Toggle Button */}
-                    <button
-                        onClick={toggleSidebar}
-                        className="p-1.5 rounded-md hover:bg-gray-100 transition-colors"
-                        aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-                    >
-                        {isCollapsed ? (
-                            <ChevronRight size={16} className="text-gray-500" />
-                        ) : (
-                            <ChevronLeft size={16} className="text-gray-500" />
-                        )}
-                    </button>
+                    {/* Toggle Button - only show on desktop */}
+                    {!isMobile && (
+                        <button
+                            onClick={toggleSidebar}
+                            className="hidden sm:block p-1.5 rounded-md hover:bg-gray-100 transition-colors"
+                            aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                        >
+                            {isCollapsed ? (
+                                <ChevronRight size={16} className="text-gray-500" />
+                            ) : (
+                                <ChevronLeft size={16} className="text-gray-500" />
+                            )}
+                        </button>
+                    )}
                 </div>
             </div>
 

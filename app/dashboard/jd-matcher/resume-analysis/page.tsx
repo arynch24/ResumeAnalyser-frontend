@@ -73,7 +73,7 @@ export default function JdMatcher() {
     resumeAnalysisData &&
     <div className="h-screen bg-gray-50 overflow-y-scroll">
       {/* Sticky header with resume info and action buttons */}
-      <div className='sticky top-0 px-8 py-4 shadow-sm bg-white border-b border-gray-100 z-10'>
+      <div className='sticky top-0 px-4 sm:px-6 lg:px-8 py-4 shadow-sm bg-white border-b border-gray-100 z-10'>
         <ResumeHeader
           fileName={resumeAnalysisData.resume_metadata.resume_name} 
           onDownload={handleDownload}
@@ -82,24 +82,24 @@ export default function JdMatcher() {
       </div>
       
       {/* Main content container with responsive padding */}
-      <div className="max-w-7xl mx-auto px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
 
-        {/* Main Content Grid - Two column layout on large screens */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        {/* Main Content Grid - Responsive layout */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8">
           
           {/* ATS Compatibility Score Section */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
             <div className="flex items-center justify-between mb-1">
-              <h2 className="text-xl font-semibold text-gray-900">ATS Compatibility Score</h2>
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">ATS Compatibility Score</h2>
             </div>
-            <p className="text-gray-600 text-sm mb-6">
+            <p className="text-gray-600 text-sm mb-4 sm:mb-6">
               How well your resume passes automated screening
             </p>
 
             {/* ATS Score Display with circular progress and detailed metrics */}
-            <div className="flex items-center mt-12">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-6 sm:mt-12">
               {/* Overall ATS Score */}
-              <div className="flex-1">
+              <div className="flex-shrink-0">
                 <CircularProgress
                   percentage={resumeAnalysisData.resume_analysis.ats_score.ats_score}
                   color="#3B82F6"
@@ -108,7 +108,7 @@ export default function JdMatcher() {
               </div>
 
               {/* Detailed ATS Metrics */}
-              <div className="flex-1 mr-4">
+              <div className="flex-1 w-full">
                 <ProgressBar
                   label="Format Compliance"
                   percentage={resumeAnalysisData.resume_analysis.ats_score.format_compliance}
@@ -126,29 +126,31 @@ export default function JdMatcher() {
           </div>
 
           {/* Job Description Match Section */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
             <div className="flex items-center justify-between mb-1">
-              <h2 className="text-xl font-semibold text-gray-900">Job Description Match</h2>
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Job Description Match</h2>
             </div>
-            <p className="text-gray-600 text-sm mb-6">
+            <p className="text-gray-600 text-sm mb-4 sm:mb-6">
               For: {resumeAnalysisData.resume_analysis.job_title}
             </p>
 
             {/* Job Match Score and Skills Analysis */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mt-6 sm:mt-12">
               {/* Overall Match Score */}
-              <CircularProgress
-                percentage={resumeAnalysisData.resume_analysis.job_match_score}
-                color="#10B981"
-                label="Match Rate"
-              />
+              <div className="flex justify-center sm:justify-start flex-shrink-0">
+                <CircularProgress
+                  percentage={resumeAnalysisData.resume_analysis.job_match_score}
+                  color="#10B981"
+                  label="Match Rate"
+                />
+              </div>
 
               {/* Skills Breakdown */}
-              <div className="flex-1 ml-8">
+              <div className="flex-1 space-y-4">
                 {/* Matched Skills */}
-                <div className="mb-4">
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">Key Matched Skills</h3>
-                  <div className="flex flex-wrap gap-2">
+                <div>
+                  <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2 sm:mb-3">Key Matched Skills</h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {resumeAnalysisData.resume_analysis.matched_skills.map((skill, index) => (
                       <SkillTag key={index} skill={skill} type="matched" />
                     ))}
@@ -157,8 +159,8 @@ export default function JdMatcher() {
 
                 {/* Missing Skills */}
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">Missing Skills</h3>
-                  <div className="flex flex-wrap gap-2">
+                  <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2 sm:mb-3">Missing Skills</h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {resumeAnalysisData.resume_analysis.missing_skills.map((skill, index) => (
                       <SkillTag key={index} skill={skill} type="missing" />
                     ))}
@@ -170,52 +172,54 @@ export default function JdMatcher() {
         </div>
 
         {/* AI-Generated Resume Summary Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 mb-6 lg:mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-900">AI-Generated Resume Summary</h2>
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">AI-Generated Resume Summary</h2>
           </div>
           {/* Summary text with proper typography */}
-          <p className="text-gray-700 leading-relaxed">{resumeAnalysisData.resume_analysis.llm_analysis.overall_analysis.resume_summary}</p>
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{resumeAnalysisData.resume_analysis.llm_analysis.overall_analysis.resume_summary}</p>
           
           {/* Copy to clipboard button */}
           <div className="flex justify-end mt-4 cursor-pointer">
-            <span className="text-sm text-gray-500 px-3 py-2 rounded  w-fit hover:bg-gray-50 hover:text-blue-500"
+            <span className="text-xs sm:text-sm text-gray-500 px-3 py-2 rounded w-fit hover:bg-gray-50 hover:text-blue-500"
               onClick={handleCopyToClipboard}>
-              <Copy size={16} className="inline mr-1" />
+              <Copy size={14} className="inline mr-1 sm:mr-2" />
               Copy to clipboard
             </span>
           </div>
         </div>
 
         {/* Section-by-Section Analysis */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Section-by-Section Analysis</h2>
+        <div className="mb-6 lg:mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Section-by-Section Analysis</h2>
 
-          {/* Individual section analysis cards */}
-          <SectionCard
-            title="Education"
-            analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.education}
-          />
+          {/* Individual section analysis cards with responsive spacing */}
+          <div className="space-y-4 sm:space-y-6">
+            <SectionCard
+              title="Education"
+              analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.education}
+            />
 
-          <SectionCard
-            title="Work Experience"
-            analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.experience}
-          />
+            <SectionCard
+              title="Work Experience"
+              analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.experience}
+            />
 
-          <SectionCard
-            title="Projects"
-            analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.projects}
-          />
+            <SectionCard
+              title="Projects"
+              analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.projects}
+            />
 
-          <SectionCard
-            title="Skills"
-            analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.skills}
-          />
+            <SectionCard
+              title="Skills"
+              analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.skills}
+            />
 
-          <SectionCard
-            title="Extracurricular"
-            analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.extracurricular}
-          />
+            <SectionCard
+              title="Extracurricular"
+              analysis={resumeAnalysisData.resume_analysis.llm_analysis.section_wise_analysis.extracurricular}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -51,51 +51,51 @@ const CareerFeedback: React.FC<{
   const status = getOverallScoreStatus();
 
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full mx-auto max-w-7xl">
       {/* Overall Score */}
-      <div className={`p-6 rounded-lg ${status.bg} border border-gray-200`}>
-        <div className="flex items-center gap-4">
+      <div className={`p-4 sm:p-6 rounded-lg ${status.bg} border border-gray-200`}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex items-center gap-2">
-            <Trophy className={`w-8 h-8 ${status.color}`} />
+            <Trophy className={`w-6 h-6 sm:w-8 sm:h-8 ${status.color}`} />
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">{overall_score}/100</h2>
-              <p className={`text-lg font-semibold ${status.color}`}>{status.text}</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{overall_score}/100</h2>
+              <p className={`text-base sm:text-lg font-semibold ${status.color}`}>{status.text}</p>
             </div>
           </div>
-          <div className="flex-1 ml-8">
-            <div className="w-full bg-gray-200 rounded-full h-3">
+          <div className="flex-1 w-full sm:ml-8">
+            <div className="w-full bg-gray-200 rounded-full h-2 sm:h-3">
               <div
-                className={`h-3 rounded-full transition-all duration-500 ${overall_score >= 80 ? 'bg-green-500' :
-                    overall_score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${overall_score >= 80 ? 'bg-green-500' :
+                  overall_score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
                   }`}
                 style={{ width: `${overall_score}%` }}
               />
             </div>
-            <p className="text-sm text-gray-600 mt-1">Overall Career Readiness Score</p>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1">Overall Career Readiness Score</p>
           </div>
         </div>
       </div>
 
       {/* Skill Proficiency Map and Career Suggestions */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6">
         {/* Skill Proficiency Map */}
-        <div className="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm mb-6">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-2xl font-semibold">Skill Proficiency Map</h2>
-              <p className="text-gray-600">Based on your assessment results</p>
+        <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded-lg shadow-sm mb-4 sm:mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6">
+            <div className="mb-3 sm:mb-0">
+              <h2 className="text-xl sm:text-2xl font-semibold">Skill Proficiency Map</h2>
+              <p className="text-sm sm:text-base text-gray-600">Based on your assessment results</p>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full">
+            <div className="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full self-start sm:self-center">
               <CheckCircle size={16} />
               <span className="text-sm">Assessment Completed</span>
             </div>
           </div>
 
-          {/* Radar Chart Placeholder */}
-          <div className="relative" style={{ height: '400px' }}>
+          {/* Radar Chart */}
+          <div className="relative flex justify-center" style={{ height: '280px' }}>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <svg width="300" height="300" viewBox="0 0 300 300" className="overflow-visible">
+                <svg width="260" height="260" viewBox="0 0 300 300" className="overflow-visible w-full h-full max-w-xs sm:max-w-sm">
                   {/* Grid circles */}
                   <circle cx="150" cy="150" r="120" fill="none" stroke="#e5e7eb" strokeWidth="1" />
                   <circle cx="150" cy="150" r="90" fill="none" stroke="#e5e7eb" strokeWidth="1" />
@@ -166,7 +166,7 @@ const CareerFeedback: React.FC<{
                   )}
                 </svg>
 
-                <div className="mt-4 flex items-center justify-center gap-6">
+                <div className="mt-4 flex items-center justify-center gap-4 sm:gap-6">
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-2 bg-blue-500 rounded"></div>
                     <span className="text-sm">Your Skills</span>
@@ -177,7 +177,7 @@ const CareerFeedback: React.FC<{
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex gap-2 mb-6">
+          <div className="flex gap-2 mb-4 sm:mb-6 overflow-x-auto">
             {[
               { key: 'technical', label: 'Technical Skills', color: 'blue' },
               { key: 'soft', label: 'Soft Skills', color: 'purple' }
@@ -196,9 +196,9 @@ const CareerFeedback: React.FC<{
           </div>
         </div>
 
-        {/* Career Suggestions - Updated Minimalist Design */}
-        <div className="bg-white border border-gray-100 rounded-xl p-6">
-          <div className="mb-6">
+        {/* Career Suggestions */}
+        <div className="bg-white border border-gray-100 rounded-xl p-4 sm:p-6">
+          <div className="mb-4 sm:mb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-1">Career Suggestions</h3>
             <p className="text-sm text-gray-500 uppercase tracking-wide">Suitable Roles</p>
           </div>
@@ -206,41 +206,37 @@ const CareerFeedback: React.FC<{
           <div className="space-y-3">
             {career_suggestions.suggestions.map((suggestion, index) => {
               const matchLevel = getMatchLevel(suggestion.match_percent);
-              
+
               return (
-                <div 
-                  key={index} 
-                  className={`group transition-all duration-200 p-4 rounded-lg border ${
-                    matchLevel === 'high' ? 'bg-emerald-50 border-emerald-200 hover:bg-emerald-100' :
+                <div
+                  key={index}
+                  className={`group transition-all duration-200 p-3 sm:p-4 rounded-lg border ${matchLevel === 'high' ? 'bg-emerald-50 border-emerald-200 hover:bg-emerald-100' :
                     matchLevel === 'medium' ? 'bg-amber-50 border-amber-200 hover:bg-amber-100' :
-                    'bg-orange-50 border-orange-200 hover:bg-orange-100'
-                  }`}
+                      'bg-orange-50 border-orange-200 hover:bg-orange-100'
+                    }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 flex-1">
-                      <div className={`transition-colors ${
-                        matchLevel === 'high' ? 'text-emerald-600' :
+                    <div className="flex items-center gap-2 sm:gap-3 flex-1">
+                      <div className={`transition-colors ${matchLevel === 'high' ? 'text-emerald-600' :
                         matchLevel === 'medium' ? 'text-amber-600' :
-                        'text-orange-600'
-                      }`}>
+                          'text-orange-600'
+                        }`}>
                         {getIconForRole(suggestion.role_name)}
                       </div>
                       <span className="font-medium text-gray-900 text-sm leading-relaxed">
                         {suggestion.role_name}
                       </span>
                     </div>
-                    
+
                     <div className="flex items-center gap-2">
-                      <div className={`w-2 h-2 rounded-full ${
-                        matchLevel === 'high' ? 'bg-emerald-500' :
+                      <div className={`w-2 h-2 rounded-full ${matchLevel === 'high' ? 'bg-emerald-500' :
                         matchLevel === 'medium' ? 'bg-amber-500' :
-                        'bg-orange-500'
-                      }`} />
-                      <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                        matchLevel === 'high' ? 'bg-emerald-100 text-emerald-800' :
+                          'bg-orange-500'
+                        }`} />
+                      <span className={`text-xs font-medium px-2 py-1 rounded-full ${matchLevel === 'high' ? 'bg-emerald-100 text-emerald-800' :
                         matchLevel === 'medium' ? 'bg-amber-100 text-amber-800' :
-                        'bg-orange-100 text-orange-800'
-                      }`}>
+                          'bg-orange-100 text-orange-800'
+                        }`}>
                         {suggestion.match_percent} Match
                       </span>
                     </div>
@@ -250,7 +246,7 @@ const CareerFeedback: React.FC<{
             })}
           </div>
 
-          <div className="mt-6 pt-4 border-t border-gray-100">
+          <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-100">
             <p className="text-xs text-gray-500 text-center">
               Based on your skill assessment results
             </p>
@@ -259,31 +255,31 @@ const CareerFeedback: React.FC<{
       </div>
 
       {/* Strengths and Improvements */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-        <div className='bg-white rounded-lg p-6 shadow-sm'>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mt-4 sm:mt-8">
+        <div className='bg-white rounded-lg p-4 sm:p-6 shadow-sm'>
           <div className="flex items-center gap-2 mb-4">
-            <CheckCircle className="text-green-500" size={24} />
-            <h3 className="text-xl font-bold">Strengths</h3>
+            <CheckCircle className="text-green-500" size={20} />
+            <h3 className="text-lg sm:text-xl font-bold">Strengths</h3>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {career_suggestions.strengths.map((strength, index) => (
-              <div key={index} className="p-4 bg-green-50 rounded-lg">
-                <h4 className="font-semibold text-green-800 mb-2">{strength.skill}</h4>
+              <div key={index} className="p-3 sm:p-4 bg-green-50 rounded-lg">
+                <h4 className="font-semibold text-green-800 mb-2 text-sm sm:text-base">{strength.skill}</h4>
                 <p className="text-green-700 text-sm">{strength.strength_point}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className='bg-white rounded-lg p-6 shadow-sm'>
+        <div className='bg-white rounded-lg p-4 sm:p-6 shadow-sm'>
           <div className="flex items-center gap-2 mb-4">
-            <AlertCircle className="text-orange-400" size={24} />
-            <h3 className="text-xl font-bold">Improvement Areas</h3>
+            <AlertCircle className="text-orange-400" size={20} />
+            <h3 className="text-lg sm:text-xl font-bold">Improvement Areas</h3>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {career_suggestions.improvement_areas.map((improvement, index) => (
-              <div key={index} className="p-4 bg-orange-50 rounded-lg">
-                <h4 className="font-semibold text-orange-800 mb-2">{improvement.skill}</h4>
+              <div key={index} className="p-3 sm:p-4 bg-orange-50 rounded-lg">
+                <h4 className="font-semibold text-orange-800 mb-2 text-sm sm:text-base">{improvement.skill}</h4>
                 <p className="text-orange-700 text-sm">{improvement.improvement_point}</p>
               </div>
             ))}
@@ -292,12 +288,12 @@ const CareerFeedback: React.FC<{
       </div>
 
       {/* AI Tips */}
-      <div className="mt-8 p-6 bg-blue-50 rounded-lg shadow-sm">
+      <div className="mt-4 sm:mt-8 p-4 sm:p-6 bg-blue-50 rounded-lg shadow-sm">
         <h3 className="text-lg font-bold mb-3">AI TIPS</h3>
-        <p className="text-gray-700 mb-3">Based on your profile, consider:</p>
+        <p className="text-gray-700 mb-3 text-sm sm:text-base">Based on your profile, consider:</p>
         <ul className="space-y-1 text-sm text-gray-700">
           {career_suggestions.improvement_areas.slice(0, 4).map((area, index) => (
-            <li key={index}>• Focus on improving {area.skill} - {area.improvement_point}</li>
+            <li key={index} className="break-words">• Focus on improving {area.skill} - {area.improvement_point}</li>
           ))}
         </ul>
       </div>

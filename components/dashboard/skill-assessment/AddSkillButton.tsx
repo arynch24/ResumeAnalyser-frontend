@@ -40,7 +40,7 @@ const AddSkillButton: React.FC<AddSkillButtonProps> = ({ type, onAdd, disabled =
                     value={skillName}
                     onChange={(e) => setSkillName(e.target.value)}
                     placeholder="Enter skill name"
-                    className="px-3 py-1 border border-gray-300 rounded-full text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="px-3 py-1 border border-gray-300 rounded-full text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                     onKeyPress={(e) => {
                         if (e.key === 'Enter') handleAdd();
                         if (e.key === 'Escape') handleCancel();
@@ -67,7 +67,7 @@ const AddSkillButton: React.FC<AddSkillButtonProps> = ({ type, onAdd, disabled =
         <button
             onClick={handleStartAdding}
             disabled={disabled}
-            className={`inline-flex items-center gap-1 px-3 py-1 border-2 border-dashed rounded-full text-sm transition-colors ${
+            className={`inline-flex items-center gap-1 px-3 py-1 border-2 border-dashed rounded-full text-xs sm:text-sm transition-colors ${
                 disabled
                     ? 'border-gray-200 text-gray-400 cursor-not-allowed'
                     : 'border-gray-300 text-gray-600 hover:border-gray-400 hover:text-gray-800'

@@ -185,14 +185,14 @@ export default function ResumeScanner() {
     );
 
     return (
-        <div className="min-h-screen w-full bg-gray-50 relative">
-            <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="h-screen w-full bg-gray-50 relative overflow-y-auto">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
                 {/* Page Header */}
-                <div className='mb-6'>
-                    <h1 className="text-3xl font-semibold text-gray-900 mb-1">
+                <div className='mb-4 sm:mb-6'>
+                    <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-1">
                         Resume Scanner
                     </h1>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600">
                         Upload your resume and job details to analyze the match.
                     </p>
                 </div>
@@ -202,13 +202,13 @@ export default function ResumeScanner() {
                     }`}>
                     
                     {/* Two Column Layout - Resume Upload & Job Details */}
-                    <div className="grid md:grid-cols-2 gap-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                         
                         {/* Left Section - Resume Upload */}
-                        <div className="p-6 border-r border-gray-100">
+                        <div className="p-4 sm:p-6 border-b md:border-b-0 md:border-r border-gray-100">
                             {/* Upload Section Header */}
-                            <div className="mb-8">
-                                <h2 className="text-xl font-medium text-gray-900 mb-2 flex items-center">
+                            <div className="mb-6 sm:mb-8">
+                                <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 flex items-center">
                                     Upload Resume
                                 </h2>
                                 <p className="text-gray-500 text-sm">
@@ -218,9 +218,9 @@ export default function ResumeScanner() {
 
                             {/* Drag and Drop Upload Area */}
                             <div
-                                className={`border-2 border-dashed rounded-lg transition-all duration-200 cursor-pointer ${resumeFile
-                                    ? 'border-green-300 bg-green-50 p-22'
-                                    : 'border-gray-200 p-25 hover:border-gray-300 hover:bg-gray-50'
+                                className={`flex items-center justify-center h-3/4 border-2 border-dashed rounded-lg transition-all duration-200 cursor-pointer ${resumeFile
+                                    ? 'border-green-300 bg-green-50 p-6 sm:p-8'
+                                    : 'border-gray-200 p-8 sm:p-12 hover:border-gray-300 hover:bg-gray-50'
                                     }`}
                                 onDragOver={handleDragOver}
                                 onDrop={handleDrop}
@@ -240,25 +240,25 @@ export default function ResumeScanner() {
                                     {resumeFile ? (
                                         // File uploaded state - show file details
                                         <div className="space-y-3">
-                                            <FileCheck className="mx-auto text-green-600" size={48} />
+                                            <FileCheck className="mx-auto text-green-600" size={40} />
                                             <div>
-                                                <p className="font-medium text-gray-900">{resumeFile.name}</p>
-                                                <p className="text-sm text-gray-500">
+                                                <p className="font-medium text-gray-900 text-sm sm:text-base break-all">{resumeFile.name}</p>
+                                                <p className="text-xs sm:text-sm text-gray-500">
                                                     {(resumeFile.size / 1024 / 1024).toFixed(1)} MB
                                                 </p>
                                             </div>
-                                            <p className="text-xs text-gray-400">Click to change</p>
+                                            <p className="text-xs text-gray-400">Tap to change</p>
                                         </div>
                                     ) : (
                                         // No file uploaded state - show upload prompt
                                         <div className="space-y-3">
-                                            <Upload className="mx-auto text-gray-300" size={48} />
+                                            <Upload className="mx-auto text-gray-300" size={40} />
                                             <div>
-                                                <p className="text-gray-700 font-medium">
+                                                <p className="text-gray-700 font-medium text-sm sm:text-base">
                                                     Drop your resume here
                                                 </p>
-                                                <p className="text-sm text-gray-500 mt-1">
-                                                    or click to browse
+                                                <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                                                    or tap to browse
                                                 </p>
                                             </div>
                                         </div>
@@ -268,10 +268,10 @@ export default function ResumeScanner() {
                         </div>
 
                         {/* Right Section - Job Details Form */}
-                        <div className="p-6">
+                        <div className="p-4 sm:p-6">
                             {/* Job Details Section Header */}
-                            <div className="mb-8">
-                                <h2 className="text-xl font-medium text-gray-900 mb-2 flex items-center">
+                            <div className="mb-6 sm:mb-8">
+                                <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 flex items-center">
                                     Job Details
                                 </h2>
                                 <p className="text-gray-500 text-sm">
@@ -280,9 +280,9 @@ export default function ResumeScanner() {
                             </div>
 
                             {/* Form Fields */}
-                            <div className="space-y-6">
-                                {/* Job Title and Company - Side by side */}
-                                <div className='w-full flex gap-3'>
+                            <div className="space-y-4 sm:space-y-6">
+                                {/* Job Title and Company - Stack on mobile, side by side on desktop */}
+                                <div className='w-full flex flex-col sm:flex-row gap-3'>
                                     <div className='w-full'>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
                                             Job Title
@@ -292,7 +292,7 @@ export default function ResumeScanner() {
                                             value={jobDetails.title}
                                             onChange={(e) => handleJobDetailsChange('title', e.target.value)}
                                             placeholder="Senior Software Engineer"
-                                            className="w-full text-sm px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 transition-colors"
+                                            className="w-full text-sm px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                                         />
                                     </div>
 
@@ -305,7 +305,7 @@ export default function ResumeScanner() {
                                             value={jobDetails.company}
                                             onChange={(e) => handleJobDetailsChange('company', e.target.value)}
                                             placeholder="Company name"
-                                            className="w-full text-sm px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 transition-colors"
+                                            className="w-full text-sm px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                                         />
                                     </div>
                                 </div>
@@ -319,8 +319,8 @@ export default function ResumeScanner() {
                                         value={jobDetails.description}
                                         onChange={(e) => handleJobDetailsChange('description', e.target.value)}
                                         placeholder="Paste the job description, requirements, and qualifications..."
-                                        rows={8}
-                                        className="w-full text-sm px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 transition-colors resize-none"
+                                        rows={6}
+                                        className="h-56 w-full text-sm px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
                                     />
                                 </div>
                             </div>
@@ -328,14 +328,14 @@ export default function ResumeScanner() {
                     </div>
 
                     {/* Bottom Action Section */}
-                    <div className="px-8 py-6 bg-gray-50 border-t border-gray-100">
+                    <div className="px-4 sm:px-8 py-4 sm:py-6 bg-gray-50 border-t border-gray-100">
                         <div className="flex justify-center">
                             {/* Start Analysis Button */}
                             <button
                                 onClick={handleStartScanning}
                                 disabled={!isFormValid || isScanning}
-                                className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center space-x-3 ${isFormValid && !isScanning
-                                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md'
+                                className={`w-full sm:w-auto px-6 sm:px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-3 text-sm sm:text-base ${isFormValid && !isScanning
+                                    ? 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white shadow-sm hover:shadow-md'
                                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                                     }`}
                             >
@@ -357,7 +357,7 @@ export default function ResumeScanner() {
 
                         {/* Form validation message */}
                         {!isFormValid && (
-                            <p className="text-center text-sm text-gray-400 mt-3">
+                            <p className="text-center text-xs sm:text-sm text-gray-400 mt-3">
                                 Please upload your resume and complete all fields
                             </p>
                         )}

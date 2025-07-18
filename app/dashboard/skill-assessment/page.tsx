@@ -320,13 +320,13 @@ const SkillAssessmentDashboard: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 py-6">
         {/* Dashboard Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-semibold text-gray-900 mb-1">Skill Assessment Dashboard</h1>
-          <p className="text-gray-600">Evaluate your skills with AI-generated questions and get personalized career feedback</p>
+          <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-1">Skill Assessment Dashboard</h1>
+          <p className="text-gray-600 text-sm sm:text-base">Evaluate your skills with AI-generated questions and get personalized career feedback</p>
         </div>
 
         {/* Error Display */}
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <div className=" mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
             <p className="text-red-700">{error}</p>
           </div>
         )}

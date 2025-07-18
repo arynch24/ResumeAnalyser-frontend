@@ -239,25 +239,27 @@ const SkillExtraction: React.FC<SkillExtractionProps> = ({
     }
 
     return (
-        <div className="bg-white p-8 rounded-lg shadow-sm max-w-6xl mx-auto">
-            <div className="mb-8">
+        <div className="bg-white p-4 sm:p-8 rounded-lg shadow-sm max-w-6xl mx-auto">
+            <div className="mb-6 sm:mb-8">
                 {/* Header Section */}
-                <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-900">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
                         Skills Extracted from Resume
                     </h2>
                 </div>
 
                 {/* Technical Skills Section */}
-                <div className="mb-8">
-                    <div className="flex items-center gap-2 mb-4">
-                        <Code className="text-blue-500" size={20} />
-                        <h3 className="text-lg font-medium text-gray-900">Technical Skills</h3>
+                <div className="mb-6 sm:mb-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+                        <div className="flex items-center gap-2">
+                            <Code className="text-blue-500" size={20} />
+                            <h3 className="text-base sm:text-lg font-medium text-gray-900">Technical Skills</h3>
+                        </div>
                         <span className="text-sm text-gray-500">
                             ({technicalSkills.length} of 8 skills)
                         </span>
                     </div>
-                    <div className="flex flex-wrap gap-3 items-center">
+                    <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
                         {/* Render technical skill tags */}
                         {technicalSkills.map(skill => (
                             <SkillTag
@@ -276,15 +278,17 @@ const SkillExtraction: React.FC<SkillExtractionProps> = ({
                 </div>
 
                 {/* Soft Skills Section */}
-                <div className="mb-8">
-                    <div className="flex items-center gap-2 mb-4">
-                        <Users className="text-purple-500" size={20} />
-                        <h3 className="text-lg font-medium text-gray-900">Soft Skills</h3>
+                <div className="mb-6 sm:mb-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+                        <div className="flex items-center gap-2">
+                            <Users className="text-purple-500" size={20} />
+                            <h3 className="text-base sm:text-lg font-medium text-gray-900">Soft Skills</h3>
+                        </div>
                         <span className="text-sm text-gray-500">
                             ({softSkills.length} of 8 skills)
                         </span>
                     </div>
-                    <div className="flex flex-wrap gap-3 items-center">
+                    <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
                         {/* Render soft skill tags */}
                         {softSkills.map(skill => (
                             <SkillTag
@@ -304,8 +308,8 @@ const SkillExtraction: React.FC<SkillExtractionProps> = ({
 
                 {/* Maximum Skills Warning */}
                 {(hasMaxTechnicalSkills || hasMaxSoftSkills) && (
-                    <div className="mb-6 flex items-center gap-2 px-4 py-3 bg-orange-50 rounded-lg">
-                        <AlertCircle size={20} className="text-orange-600" />
+                    <div className="mb-4 sm:mb-6 flex items-start sm:items-center gap-2 px-3 sm:px-4 py-3 bg-orange-50 rounded-lg">
+                        <AlertCircle size={20} className="text-orange-600 flex-shrink-0" />
                         <span className="text-orange-800 text-sm">
                             {hasMaxTechnicalSkills && hasMaxSoftSkills
                                 ? "You've reached the maximum limit of 8 skills for both categories."
@@ -319,20 +323,20 @@ const SkillExtraction: React.FC<SkillExtractionProps> = ({
             </div>
 
             {/* Bottom Action Section */}
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
                 {/* Information Alert */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-blue-50 rounded-lg">
-                    <AlertCircle size={20} className="text-blue-600" />
+                <div className="flex items-start sm:items-center gap-2 px-3 sm:px-4 py-3 bg-blue-50 rounded-lg">
+                    <AlertCircle size={20} className="text-blue-600 flex-shrink-0" />
                     <span className="text-blue-800 text-sm">
                         Verify and edit your skills before proceeding to the assessment
                     </span>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col items-end gap-2">
+                <div className="flex flex-col items-stretch sm:items-end gap-2">
                     {/* Minimum skills validation message */}
                     {!hasMinimumSkills && (
-                        <p className="text-sm text-orange-600">
+                        <p className="text-sm text-orange-600 text-center sm:text-right">
                             Add at least 2 technical and 2 soft skills to proceed
                         </p>
                     )}
@@ -341,7 +345,7 @@ const SkillExtraction: React.FC<SkillExtractionProps> = ({
                     <button
                         onClick={onNext}
                         disabled={!hasMinimumSkills || !hasMaximumSkills || loading}
-                        className={`px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors ${!hasMinimumSkills || !hasMaximumSkills || loading
+                        className={`px-4 sm:px-6 py-3 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors w-full sm:w-auto ${!hasMinimumSkills || !hasMaximumSkills || loading
                             ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                             : 'bg-blue-500 text-white hover:bg-blue-600'
                             }`}
