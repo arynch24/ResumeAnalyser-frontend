@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 type User = {
     userId: string,
@@ -19,6 +20,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [success, setSuccess] = useState<boolean>(false);
+    const router = useRouter();
 
     // Auto-fetch user on load
     useEffect(() => {
@@ -31,6 +33,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 setSuccess(res.data.success);
             } catch (err) {
                 setUser(null);
+                router.push('/');
             }
         };
 
