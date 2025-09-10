@@ -40,7 +40,7 @@ const ResumeDashboard: React.FC = () => {
           description: string;
           weightage: number;
         }[];
-        ats_optimization_suggestions:{
+        ats_optimization_suggestions: {
           description: string;
           weightage: number;
         }[];
@@ -125,7 +125,7 @@ const ResumeDashboard: React.FC = () => {
 
         console.log('Successfully fetched resume data');
 
-        if (response.data.success && response.data.resume_analysis) {
+        if (response.data.success && response.data.resume_analysis.length !== 0) {
           setHasResume(true);
           const transformedData = transformApiResponse(response.data.resume_analysis);
           setResumeData(transformedData);
@@ -288,7 +288,7 @@ const ResumeDashboard: React.FC = () => {
                 onUpload={navigateToJDMatcher}
               />
             </div>
-            
+
             {/* Score Cards - Stack vertically on mobile, side by side on tablet+ */}
             <div className="sm:col-span-1">
               <ScoreCard
@@ -300,7 +300,7 @@ const ResumeDashboard: React.FC = () => {
                 tooltipText="This score indicates how well your resume is optimized for Applicant Tracking Systems (ATS). Higher scores mean better compatibility with automated screening tools."
               />
             </div>
-            
+
             <div className="sm:col-span-1">
               <ScoreCard
                 title="Job Description Match"
