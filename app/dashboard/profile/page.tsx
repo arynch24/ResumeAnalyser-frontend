@@ -186,7 +186,7 @@ const ProfilePage: React.FC = () => {
    */
   const handleLogout = async () => {
     try {
-      await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/logout`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/logout`, {
         withCredentials: true,
       });
       setShowLogoutDialog(false);
@@ -238,7 +238,7 @@ const ProfilePage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 sm:py-8 px-4 overflow-y-auto">
+    <div className="h-screen bg-gray-50 py-4 sm:py-8 px-4 overflow-y-auto">
       <div className="max-w-4xl mx-auto">
         {/* Header Section: Page title and logout button */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4">

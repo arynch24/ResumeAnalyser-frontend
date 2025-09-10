@@ -24,7 +24,7 @@ const api = {
    * @throws {Error} When API request fails
    */
   getResumes: async (): Promise<Resume[]> => {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_FASTAPI_URL}/api/v1/resume`, {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_FASTAPI_URL}/api/v1/resume/`, {
       withCredentials: true
     });
     return response.data.resume;
